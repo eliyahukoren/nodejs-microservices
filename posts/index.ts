@@ -1,6 +1,6 @@
 
 import express, { Express } from 'express';
-import { postRoute } from "./routers";
+import { postRoute } from "./routes";
 
 const app: Express = express();
 const PORT = process.env.PORT || 4000;

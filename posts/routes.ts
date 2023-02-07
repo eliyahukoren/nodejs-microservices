@@ -1,20 +1,9 @@
-import { randomBytes } from "crypto";
 import { Request, Response, Router } from "express";
+import { IPost } from "./interfaces";
+import { generateRandomId } from "./utilities";
 
 const postRoute = Router();
-
-interface IPost {
-  [key: string]: {
-    id?: string;
-    title?: string;
-  };
-}
-
 const posts: IPost = {};
-
-const generateRandomId = (): string => {
-  return randomBytes(4).toString("hex");
-};
 
 
 postRoute.get("/posts", (req: Request, res: Response): void => {
