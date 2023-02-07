@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "comments": "^0.3.7",
+    "moderation": "^1.2.3",
+    "posts": "^0.0.1",
+    "query": "^0.2.0"
+  }
+}
