@@ -11,8 +11,8 @@ interface IPost {
 };
 
 interface IComment {
-  id: string
-  content?: string
+  id?: string
+  content: string
 }
 
 interface IPostId {

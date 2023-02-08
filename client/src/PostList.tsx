@@ -11,8 +11,6 @@ const PostList = () => {
   const fetchPosts = async () => {
     const res = await axios.get("http://localhost:4000/posts");
 
-    console.log(res.data)
-
     setPosts(res.data);
   };
 
@@ -24,8 +22,6 @@ const PostList = () => {
 
   const renderedPosts = () => {
     if( !posts) return "";
-
-    console.log({"rendered" : posts})
 
     const result = Object.values(posts).map((post:IPost) => {
       return (
