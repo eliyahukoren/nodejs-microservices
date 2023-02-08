@@ -1,4 +1,4 @@
-import './App.css';
+
 import PostCreate from './PostCreate';
 import PostList from './PostList';
 
@@ -6,11 +6,13 @@ function App() {
   return (
 
     <div className="container">
-      <h1>Create Post</h1>
-      <PostCreate />
-      <hr />
-      <h1>Posts</h1>
-      <PostList />
+      <div className='mt-3 mb-3'>
+        <h2>Create Post</h2>
+        <PostCreate />
+        <hr />
+        <h2>Posts</h2>
+        <PostList />
+      </div>
     </div>
   );
 }

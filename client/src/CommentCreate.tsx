@@ -18,7 +18,7 @@ const CommentCreate = ({ postId }:IPostId) => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <div className="form-group">
+        <div className="form-group mb-3">
           <label>New Comment</label>
           <input
             value={content}
@@ -26,7 +26,7 @@ const CommentCreate = ({ postId }:IPostId) => {
             className="form-control"
           />
         </div>
-        <button className="btn btn-primary">Submit</button>
+        <button className="btn btn-success">Submit</button>
       </form>
     </div>
   );
