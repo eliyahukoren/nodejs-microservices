@@ -15,7 +15,7 @@ describe("Get /posts", () => {
       .get("/posts")
       .expect("Content-Type", /json/)
       .expect(200)
-      .end((err, res) => {
+      .end((err: any, res: any) => {
         if( err) return done(err);
         expect(res.body).toMatchObject({});
         done();

@@ -14,6 +14,8 @@ postRoute.post("/posts", (req: Request, res: Response): void => {
   const { title } = req.body;
   const id: string = generateRandomId();
 
+  console.log(title);
+
   posts[id] = {
     id,
     title,
