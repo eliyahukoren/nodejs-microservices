@@ -18,6 +18,7 @@ postRoute.post("/posts", (req: Request, res: Response): void => {
     id,
     title,
   };
+
   res.status(201).send(posts[id]);
 });
 
