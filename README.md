@@ -1,6 +1,15 @@
 Simple blog application
 Create post and allowing users to comment on them.
 
+
+```
+git rm --cached -r <directory>
+
+or
+
+git rm -r --cached .
+```
+
 ## Services:
 
 **Event Bus Service**: listening port 4005
