@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createCommentsServer = void 0;
 const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
-const routes_1 = require("./routes");
+const commentsRoutes_1 = require("./commentsRoutes");
 const createCommentsServer = () => {
     const app = (0, express_1.default)();
     const allowedOrigins = ["http://localhost:3000"];
@@ -16,7 +16,7 @@ const createCommentsServer = () => {
     app.use((0, cors_1.default)(options));
     app.use(express_1.default.urlencoded({ extended: true }));
     app.use(express_1.default.json());
-    app.use("/", routes_1.commentRoute);
+    app.use("/", commentsRoutes_1.commentRoute);
     return app;
 };
 exports.createCommentsServer = createCommentsServer;

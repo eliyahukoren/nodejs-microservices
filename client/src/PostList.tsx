@@ -4,12 +4,13 @@ import CommentCreate from "./CommentCreate";
 import CommentList from "./CommentList";
 import { IPost, IPostList } from "./interface";
 
-
 const PostList = () => {
-  const [posts, setPosts] = useState<IPostList | undefined>({});
+  const [posts, setPosts] = useState<IPostList>({});
 
   const fetchPosts = async () => {
-    const res = await axios.get("http://localhost:4000/posts");
+    const res = await axios.get("http://localhost:4002/posts");
+
+    console.log(res.data);
 
     setPosts(res.data);
   };
@@ -18,12 +19,17 @@ const PostList = () => {
     fetchPosts();
   }, []);
 
-
-
   const renderedPosts = () => {
+    // console.log({"render": posts});
     if( !posts) return "";
 
-    const result = Object.values(posts).map((post:IPost) => {
+    console.log("continue" );
+
+    const result = Object.values(posts).map((post: IPost) => {
+
+      console.log({"comments": post.comments});
+      const {comments} = post;
+
       return (
         <div
           className="card"
@@ -32,7 +38,7 @@ const PostList = () => {
         >
           <div className="card-body">
             <h3>{post.title}</h3>
-            <CommentList postId={post.id} />
+            <CommentList comments={post.comments} />
             <CommentCreate postId={post.id} />
           </div>
         </div>

@@ -7,9 +7,13 @@ const PostCreate = () => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    await axios.post("http://localhost:4000/posts", {
+    if( title === "") return;
+
+    const res = await axios.post("http://localhost:4000/posts", {
       title,
     });
+
+    console.log(res.data);
 
     setTitle("");
   };

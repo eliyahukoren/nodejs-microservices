@@ -2,7 +2,7 @@
 interface IComment {
     id: string;
     content: string;
-    status: "approved" | "rejected" | "pending"
+    status?: "approved" | "rejected" | "pending"
 }
 
 interface ICommentsByPostId {

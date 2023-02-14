@@ -1,8 +1,15 @@
 {
-  "dependencies": {
-    "comments": "^0.3.7",
-    "moderation": "^1.2.3",
-    "posts": "^0.0.1",
-    "query": "^0.2.0"
-  }
+	"scripts": {
+		"dev:event-bus": "yarn --cwd event-bus/ run dev",
+		"dev:moderation": "yarn --cwd moderation/ run dev",
+		"dev:query": "yarn --cwd query/ run dev",
+		"dev:posts": "yarn --cwd posts/ run dev",
+		"dev:comments": "yarn --cwd comments/ run dev",
+		"dev:client": "yarn --cwd client/ run start",
+		"dev:all": "concurrently \"yarn dev:event-bus\" \"yarn dev:moderation\" \"yarn dev:query\" \"yarn dev:posts\" \"yarn dev:comments\" \"yarn dev:client\" ",
+		"dev:no-query": "concurrently \"yarn dev:event-bus\" \"yarn dev:moderation\" \"yarn dev:posts\" \"yarn dev:comments\" \"yarn dev:client\" "
+	},
+	"devDependencies": {
+		"concurrently": "^7.6.0"
+	}
 }

@@ -1,8 +1,8 @@
-import cors from 'cors';
+import cors from "cors";
 import express, { Express } from "express";
-import { commentRoute } from "./commentsRoutes";
+import { queryRoute } from "./queryRoutes";
 
-const createCommentsServer = (): Express => {
+const createQueryServer = (): Express => {
   const app: Express = express();
 
   const allowedOrigins = ["http://localhost:3000"];
@@ -11,12 +11,13 @@ const createCommentsServer = (): Express => {
   };
 
   app.use(cors(options));
+
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
 
-  app.use("/", commentRoute);
+  app.use("/", queryRoute);
 
   return app;
 };
 
-export { createCommentsServer };
+export { createQueryServer };

@@ -1,6 +1,7 @@
 import cors from 'cors';
 import express, { Express } from "express";
-import { postRoute } from "./routes";
+import { postRoute } from "./postsRoutes";
+// import { postRouteWithEvents } from './routeWithEvents';
 
 const createPostsServer = (): Express => {
   const app: Express = express();
@@ -15,6 +16,7 @@ const createPostsServer = (): Express => {
   app.use(express.json());
 
   app.use("/", postRoute);
+  // app.use("/", postRouteWithEvents);
 
   return app;
 };

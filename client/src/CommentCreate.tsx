@@ -8,9 +8,13 @@ const CommentCreate = ({ postId }:IPostId) => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
+    if( content === "") return;
+
+    const res = await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
       content,
     });
+
+    console.log(res.data);
 
     setContent("");
   };
