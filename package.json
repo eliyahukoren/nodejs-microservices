@@ -1,15 +1,21 @@
 {
-	"scripts": {
-		"dev:event-bus": "yarn --cwd event-bus/ run dev",
-		"dev:moderation": "yarn --cwd moderation/ run dev",
-		"dev:query": "yarn --cwd query/ run dev",
-		"dev:posts": "yarn --cwd posts/ run dev",
-		"dev:comments": "yarn --cwd comments/ run dev",
-		"dev:client": "yarn --cwd client/ run start",
-		"dev:all": "concurrently \"yarn dev:event-bus\" \"yarn dev:moderation\" \"yarn dev:query\" \"yarn dev:posts\" \"yarn dev:comments\" \"yarn dev:client\" ",
-		"dev:no-query": "concurrently \"yarn dev:event-bus\" \"yarn dev:moderation\" \"yarn dev:posts\" \"yarn dev:comments\" \"yarn dev:client\" "
-	},
-	"devDependencies": {
-		"concurrently": "^7.6.0"
-	}
+  "scripts": {
+    "dev:event-bus": "yarn --cwd event-bus/ run dev",
+    "dev:moderation": "yarn --cwd moderation/ run dev",
+    "dev:query": "yarn --cwd query/ run dev",
+    "dev:posts": "yarn --cwd posts/ run dev",
+    "dev:comments": "yarn --cwd comments/ run dev",
+    "dev:client": "yarn --cwd client/ run start",
+    "dev:all": "concurrently \"yarn dev:event-bus\" \"yarn dev:moderation\" \"yarn dev:query\" \"yarn dev:posts\" \"yarn dev:comments\" \"yarn dev:client\" ",
+    "dev:no-query": "concurrently \"yarn dev:event-bus\" \"yarn dev:moderation\" \"yarn dev:posts\" \"yarn dev:comments\" \"yarn dev:client\" ",
+    "dev:watch-event-bus": "yarn --cwd event-bus/ run build:watch",
+    "dev:watch-moderation": "yarn --cwd moderation/ run build:watch",
+    "dev:watch-query": "yarn --cwd query/ run build:watch",
+    "dev:watch-posts": "yarn --cwd posts/ run build:watch",
+    "dev:watch-comments": "yarn --cwd comments/ run build:watch",
+    "dev:watch-all": "concurrently \"yarn dev:watch-event-bus\" \"yarn dev:watch-query\" \"yarn dev:watch-moderation\" \"yarn dev:watch-posts\" \"yarn dev:watch-comments\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
 }

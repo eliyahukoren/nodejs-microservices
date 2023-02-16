@@ -17,6 +17,7 @@ interface IData {
   content: string;
   postId: string;
   status: string;
+  title: string
 }
 
 export { IPost, IComment, IData };

@@ -59,14 +59,12 @@ class QueryService {
     console.log({ handleCommentUpdated: comment });
   }
 
-  // TODO: fix any type
-  createPost(data: any) {
+  createPost(data: IData) {
     const { id, title } = data;
     this.postsList[id] = { id, title, comments: [] };
   }
 
-  // TODO: fix any type
-  createComment(data: any) {
+  createComment(data: IData) {
     const { id, content, postId, status } = data;
     const post = this.postsList[postId];
     post.comments.push({ id, content, status });

@@ -7,7 +7,7 @@ createQueryServer().listen(PORT, async () => {
   const queryService = getQueryService();
 
   console.log(
-    `2️⃣ [server]: Query Server listening:${PORT}`
+    `2️⃣ [server]: Query Server listening port :${PORT}`
   );
 
   queryService.initEvents();

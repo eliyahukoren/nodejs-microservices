@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon index.js",
     "build": "npx tsc",
+    "build:watch": "npx tsc --watch",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
   },
   "author": "",
