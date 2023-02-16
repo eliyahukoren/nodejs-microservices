@@ -4,19 +4,20 @@ import { IData, IPost } from "./interfaces";
 let queryService: any;
 
 export default function getQueryService(){
-    if (!queryService) {
-      queryService = new QueryService();
-    }
+  if (!queryService) {
+    queryService = new QueryService();
+  }
 
-    return queryService;
+  return queryService;
 }
 
 class QueryService {
   postsList: IPost = {};
+  eventBusService = { host: `http://event-bus-srv:4005/events` };
 
   async initEvents(){
       try {
-        const res = await axios.get("http://localhost:4005/events");
+        const res = await axios.get(this.eventBusService.host);
 
         for (let event of res.data) {
           console.log("Processing event:", event);

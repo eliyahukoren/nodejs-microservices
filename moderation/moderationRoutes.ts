@@ -2,6 +2,7 @@ import axios from "axios";
 import { Request, Response, Router } from "express";
 
 const moderationRoute = Router();
+const eventService = { host: "http://event-bus-srv:4005/events" };
 
 moderationRoute.post("/events", async (req: Request, res: Response) => {
   console.log("Moderation - Received event:", req.body.type);
@@ -22,11 +23,11 @@ moderationRoute.post("/events", async (req: Request, res: Response) => {
 
     setTimeout(async () => {
       console.log("Emit moderation!");
-      await axios.post("http://localhost:4005/events", event).catch((err) => {
+      await axios.post(eventService.host, event).catch((err) => {
         console.log(err.message);
       });
 
-    }, 10000)
+    }, 2000)
 
   }
 

@@ -3,6 +3,13 @@ import { Request, Response, Router } from "express";
 
 const eventRoutes = Router();
 
+const servicesList = {
+  posts: "http://posts-clusterip-srv:4000/events",
+  comments: "http://comments-srv:4001/events",
+  query: "http://query-srv:4002/events",
+  moderation: "http://moderation-srv:4003/events",
+};
+
 // TODO: fix type any
 const events:any = [];
 
@@ -15,22 +22,22 @@ eventRoutes.post("/events", (req: Request, res: Response) => {
 
   // posts service
   axios
-    .post("http://localhost:4000/events", event)
+    .post(servicesList.posts, event)
     .catch((err) => console.log(err));
 
   // comments service
   axios
-    .post("http://localhost:4001/events", event)
+    .post(servicesList.comments, event)
     .catch((err) => console.log(err));
 
   // query service
   axios
-    .post("http://localhost:4002/events", event)
+    .post(servicesList.query, event)
     .catch((err) => console.log(err));
 
   // moderation service
   axios
-    .post("http://localhost:4003/events", event)
+    .post(servicesList.moderation, event)
     .catch((err) => console.log(err));
 
   res.send({ status: "OK" });

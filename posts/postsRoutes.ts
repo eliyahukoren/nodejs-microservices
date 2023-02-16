@@ -6,6 +6,7 @@ import { generateRandomId } from "./utilities";
 const postRoute = Router();
 const posts: IPost = {};
 
+const eventBusService = {host: `http://event-bus-srv:4005/events`}
 
 postRoute.get("/posts", (req: Request, res: Response): void => {
   res.status(200).send(posts);
@@ -21,7 +22,7 @@ postRoute.post("/posts", async (req: Request, res: Response) => {
     title,
   };
 
-  await axios.post("http://localhost:4005/events",{
+  await axios.post(eventBusService.host,{
     type: "PostCreated",
     data: {
       id, title

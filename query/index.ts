@@ -7,7 +7,7 @@ createQueryServer().listen(PORT, async () => {
   const queryService = getQueryService();
 
   console.log(
-    `2️⃣ [server]: Query Server is running at http://localhost:${PORT}`
+    `2️⃣ [server]: Query Server listening:${PORT}`
   );
 
   queryService.initEvents();

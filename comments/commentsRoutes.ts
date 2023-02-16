@@ -5,6 +5,7 @@ import { generateRandomId } from "./utilities";
 
 const commentRoute = Router();
 const commentsByPostId: ICommentsByPostId = {};
+const eventService = { host: "http://event-bus-srv:4005/events" };
 
 
 commentRoute.get("/posts/:id/comments", (req: Request, res: Response): void => {
@@ -31,7 +32,7 @@ commentRoute.post("/posts/:id/comments", async (req: Request, res: Response) => 
     },
   };
 
-  await axios.post("http://localhost:4005/events", event);
+  await axios.post(eventService.host, event);
 
   res.status(201).send(comments);
 });
@@ -50,7 +51,7 @@ commentRoute.post("/events", async (req: Request, res: Response) => {
     if( comment ){
       comment.status = status;
 
-      await axios.post("http://localhost:4005/events", {
+      await axios.post(eventService.host, {
         type: "CommentUpdated",
         data: {
           id, status, postId, content
