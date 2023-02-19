@@ -10,7 +10,7 @@ const CommentCreate = ({ postId }:IPostId) => {
 
     if( content === "") return;
 
-    const res = await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
+    const res = await axios.post(`http://posts.com/posts/${postId}/comments`, {
       content,
     });
 

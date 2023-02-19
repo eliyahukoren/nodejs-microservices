@@ -8,12 +8,11 @@ const posts: IPost = {};
 
 const eventBusService = {host: `http://event-bus-srv:4005/events`}
 
-postRoute.get("/posts", (req: Request, res: Response): void => {
-  res.status(200).send(posts);
-});
+// postRoute.get("/posts", (req: Request, res: Response): void => {
+//   res.status(200).send(posts);
+// });
 
-
-postRoute.post("/posts", async (req: Request, res: Response) => {
+postRoute.post("/posts/create", async (req: Request, res: Response) => {
   const { title } = req.body;
   const id: string = generateRandomId();
 
