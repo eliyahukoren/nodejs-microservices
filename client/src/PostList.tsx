@@ -26,10 +26,6 @@ const PostList = () => {
     console.log("continue" );
 
     const result = Object.values(posts).map((post: IPost) => {
-
-      console.log({"comments": post.comments});
-      const {comments} = post;
-
       return (
         <div
           className="card"
